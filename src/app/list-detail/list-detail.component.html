@@ -1,0 +1,42 @@
+<div class="row custom-card" style="height:570px;">
+  <div class="mt-5" *ngIf="coinDetail">
+    <h3 class="text-center mb-4">
+      <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/{{coinDetail.id}}.png" class="img-fluid" height="64" width="64">&nbsp;&nbsp;{{ coinDetail.name }} Detail</h3>
+    <div class="row" style="margin-left: 100px;">
+      <div class="col">
+        <div class="card">
+          <h4 class="card-header">Supply</h4>
+          <div class="card-body">
+            <p>
+              <strong>Rank - </strong>{{ coinDetail.rank }}</p>
+            <p>
+              <strong>Circulating Supply - </strong>{{ coinDetail.circulating_supply }}</p>
+            <p>
+              <strong>Total Supply - </strong>{{ coinDetail.total_supply }}</p>
+            <p>
+              <strong>Max Supply - </strong>{{ coinDetail.max_supply }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <h4 class="card-header">Price</h4>
+          <div class="card-body">
+            <p>
+              <strong>Price - </strong>${{ coinDetail.quotes.USD.price }}</p>
+            <p>
+              <p>
+                <strong>Volume (24 H) - </strong>{{ coinDetail.quotes.USD.volume_24h }}</p>
+              <p>
+                <p>
+                  <strong>Market Cap - </strong>{{ coinDetail.quotes.USD.market_cap || 'NA' }}</p>
+                <p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="text-center mt-5" *ngIf="!coinDetail">
+      <h4 class="text-center" style="margin-left: 170px; margin-top: 220px;">Click on the currency to see more details.</h4>
+    </div>
+</div>
